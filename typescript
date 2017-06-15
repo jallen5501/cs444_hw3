@@ -1,0 +1,636 @@
+Script started on Fri Apr 14 23:47:15 2017
+warning: could not update utmp entry
+sh: using dumb terminal settings.
+blade57(1)% make clean
+rm -f *.o *.opc core
+blade57(2)% make
+/groups/ulab/bin/i386-gcc -c -o startup0.opc startup0.s
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o startup1.opc startup1.c
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o tunix.opc tunix.c
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o sysentry.opc sysentry.s
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o asmswtch.opc asmswtch.s
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o sched.opc sched.c
+sched.c: In function `twakeup':
+sched.c:48: warning: statement with no effect
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o io.opc io.c
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o tty.opc tty.c
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o ioconf.opc ioconf.c
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o crt01.opc crt01.s
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o crt02.opc crt02.s
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o crt03.opc crt03.s
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o uprog1.opc uprog1.c
+uprog1.c:1: warning: carriage return in preprocessing directive
+uprog1.c:2: warning: carriage return in preprocessing directive
+uprog1.c:4: warning: carriage return in preprocessing directive
+uprog1.c:5: warning: carriage return in preprocessing directive
+uprog1.c:3: warning: carriage return in source file
+uprog1.c:3: warning: (we only warn about the first carriage return)
+uprog1.c:8: warning: function declaration isn't a prototype
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o uprog2.opc uprog2.c
+uprog2.c:5: warning: function declaration isn't a prototype
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o uprog3.opc uprog3.c
+uprog3.c:5: warning: function declaration isn't a prototype
+/groups/ulab/bin/i386-gcc -g  -Wall -Wstrict-prototypes -Wmissing-prototypes -Wno-uninitialized -Wshadow -pedantic -D__USE_FIXED_PROTOTYPES__ -I/groups/ulab/pcdev/include -I/groups/ulab/pcdev/include -c -o ulib.opc ulib.s
+/groups/ulab/bin/i386-ld -N -Ttext 1000e0 -o tunix.lnx \
+startup0.opc startup1.opc tunix.opc sysentry.opc asmswtch.opc sched.opc io.opc tty.opc ioconf.opc queue/queue.opc  crt01.opc crt02.opc crt03.opc uprog1.opc uprog2.opc uprog3.opc ulib.opc  /groups/ulab/pcdev/lib/libc.a
+rm -f syms;/groups/ulab/bin/i386-nm -n tunix.lnx>tunix.syms;ln -s tunix.syms syms
+blade57(3)% cat tunix.c
+/* file: tunix.c core kernel code */
+
+#include <cpu.h>
+#include <gates.h>
+#include "tsyscall.h"
+#include "tsystm.h"
+#include "proc.h"       /* PEntry struct */
+#include "sched.h"
+
+extern IntHandler syscall; /* the assembler envelope routine    */
+
+extern void ustart1(void);
+extern void ustart2(void); 
+extern void ustart3(void);
+extern void schedule(int entry);
+extern void tsleep(void);
+extern void finale(void);
+
+/* kprintf is proto'd in stdio.h, but we don't need that for anything else */
+void kprintf(char *, ...);      
+
+/* functions in this file */
+void debug_set_trap_gate(int n, IntHandler *inthand_addr, int debug);
+void set_trap_gate(int n, IntHandler *inthand_addr);
+int sysexit(int);
+void k_init(void);
+void shutdown(void);
+void syscallc( int user_eax, int devcode, char *buff , int bufflen);
+void init_process_table(void);
+void process0 (void);
+
+PEntry proctab[NPROC], *curproc; /* process table and pointer to current process */
+/* Record debug info in otherwise free memory between program and stack */
+/* 0x300000 = 3M, the start of the last M of user memory on the SAPC */
+#define DEBUG_AREA 0x300000
+char *debug_log_area = (char *)DEBUG_AREA;
+char *debug_record;  /* current pointer into log area */ 
+int finished_processes;
+
+
+#define MAX_CALL 6
+
+/* optional part: syscall dispatch table */
+static  struct sysent {
+       short   sy_narg;        /* total number of arguments */
+       int     (*sy_call)(int, ...);   /* handler */
+} sysent[MAX_CALL];
+
+/****************************************************************************/
+/* k_init: this function for the initialize  of the kernel system*/
+/****************************************************************************/
+
+void k_init(){
+  debug_record = debug_log_area; /* clear debug log */
+  cli();
+  ioinit();            /* initialize the deivce */ 
+  set_trap_gate(0x80, &syscall);   /* SET THE TRAP GATE*/
+
+  /* Note: Could set these with array initializers */
+  /* Need to cast function pointer type to keep ANSI C happy */
+  sysent[TREAD].sy_call = (int (*)(int, ...))sysread;
+  sysent[TWRITE].sy_call = (int (*)(int, ...))syswrite;
+  sysent[TEXIT].sy_call = (int (*)(int, ...))sysexit;
+ 
+  sysent[TEXIT].sy_narg = 1;    /* set the arg number of function */
+  sysent[TREAD].sy_narg = 3;
+  sysent[TIOCTL].sy_narg = 3;
+  sysent[TWRITE].sy_narg = 3;
+  sti();                        /* user runs with interrupts on */
+
+  init_process_table();
+}
+
+void init_process_table() {
+
+        int index;
+        finished_processes = 0;
+
+        curproc = (PEntry *)&proctab;
+
+        index = 0;
+  do {
+    proctab[index].p_status = RUN;
+    proctab[index].p_savedregs[SAVED_EFLAGS] = 0x1 << 9;  
+    proctab[index].p_savedregs[SAVED_EBP] = 0;
+  } while (++index < 4);
+
+  proctab[user_1].p_savedregs[SAVED_PC] = (int) &ustart1;
+  proctab[user_2].p_savedregs[SAVED_PC] = (int) &ustart2;
+  proctab[user_3].p_savedregs[SAVED_PC] = (int) &ustart3;
+
+  proctab[user_1].p_savedregs[SAVED_ESP] = ESP1;
+  proctab[user_2].p_savedregs[SAVED_ESP] = ESP2; 
+  proctab[user_3].p_savedregs[SAVED_ESP] = ESP3;   
+
+  process0();
+}
+
+void process0() {
+        int index = 1;
+        for (; index < NPROC; index++) {
+                while(proctab[index].p_status != ZOMBIE)
+                        schedule(index);
+        }       
+}
+
+/* shut the system down */
+void shutdown() {
+
+        int index= 0;
+        while (++index < NPROC) 
+                kprintf("\nEXIT CODE FOR USER PROCESS %d: %d\n", index, proctab[index].p_exitval);
+
+  kprintf("SHUTTING THE SYSTEM DOWN!\n");
+  kprintf("Debug log from run:\n");
+  kprintf("Marking kernel events as follows:\n");
+  kprintf("  ^a   COM2 input interrupt, a received\n");
+  kprintf("  ~    COM2 output interrupt, ordinary char output\n");
+  kprintf("  ~e   COM2 output interrupt, echo output\n");
+  kprintf("  ~s   COM2 output interrupt, shutdown TX ints\n");
+  kprintf("%s", debug_log_area);        /* the debug log from memory */
+  kprintf("\nLEAVE KERNEL!\n\n");
+  finale();             /* trap to Tutor */
+}
+
+/****************************************************************************/
+/* syscallc: this function for the C part of the 0x80 trap handler          */
+/* OK to just switch on the system call number here                         */
+/* By putting the return value of syswrite, etc. in user_eax, it gets       */
+/* popped back in sysentry.s and returned to user in eax                    */
+/****************************************************************************/
+
+void syscallc( int user_eax, int devcode, char *buff , int bufflen)
+{
+  int nargs;
+  int syscall_no = user_eax;
+
+  switch(nargs = sysent[syscall_no].sy_narg)
+    {
+    case 1:         /* 1-argument system call */
+        user_eax = sysent[syscall_no].sy_call(devcode);   /* sysexit */
+        break;
+    case 3:         /* 3-arg system call: calls sysread or syswrite */
+        user_eax = sysent[syscall_no].sy_call(devcode,buff,bufflen); 
+        break;
+    default: kprintf("bad # syscall args %d, syscall #%d\n",
+                     nargs, syscall_no);
+    }
+} 
+
+/****************************************************************************/
+/* sysexit: this function for the exit syscall fuction */
+/****************************************************************************/
+
+int sysexit(int exit_code){
+        
+        curproc->p_exitval = exit_code;
+  curproc->p_status = ZOMBIE;
+        if (++finished_processes < 3) {
+                curproc = (PEntry *)&proctab;
+                process0();
+        }
+        else
+                shutdown();
+        return 0;    /* never happens, but keeps gcc happy */
+}
+
+/****************************************************************************/
+/* set_trap_gate: this function for setting the trap gate */
+/****************************************************************************/
+extern void locate_idt(unsigned int *limitp, char ** idtp);
+
+void set_trap_gate(int n, IntHandler *inthand_addr)
+{
+  debug_set_trap_gate(n, inthand_addr, 0);
+}
+
+/* write the nth idt descriptor as a trap gate to inthand_addr */
+void debug_set_trap_gate(int n, IntHandler *inthand_addr, int debug)
+{
+  char *idt_addr;
+  Gate_descriptor *idt, *desc;
+  unsigned int limit = 0;
+
+  if (debug)
+    kprintf("Calling locate_idt to do sidt instruction...\n");
+  locate_idt(&limit,&idt_addr);
+  /* convert to CS seg offset, i.e., ordinary address, then to typed pointer */
+  idt = (Gate_descriptor *)(idt_addr - KERNEL_BASE_LA);
+  if (debug)
+    kprintf("Found idt at %x, lim %x\n",idt, limit);
+  desc = &idt[n];               /* select nth descriptor in idt table */
+  /* fill in descriptor */
+  if (debug)
+    kprintf("Filling in desc at %x with addr %x\n",(unsigned int)desc,
+           (unsigned int)inthand_addr);
+  desc->selector = KERNEL_CS;   /* CS seg selector for int. handler */
+  desc->addr_hi = ((unsigned int)inthand_addr)>>16; /* CS seg offset of inthand */
+  desc->addr_lo = ((unsigned int)inthand_addr)&0xffff;
+  desc->flags = GATE_P|GATE_DPL_KERNEL|GATE_TRAPGATE; /* valid, trap */
+  desc->zero = 0;
+}
+
+/* append msg to memory log */
+void debug_log(char *msg)
+{
+    strcpy(debug_record, msg);
+    debug_record +=strlen(msg);
+}
+
+
+blade57(4)% cat sched.c
+#include <cpu.h>
+#include "sched.h"
+
+extern void asmswtch(PEntry *oldproc, PEntry *newproc);
+
+typedef unsigned int byte;
+
+void schedule(int entry) {
+
+  byte saved_eflags;
+
+        PEntry * past_process = curproc;
+
+        if (proctab[entry].p_status == RUN)
+                curproc = (PEntry *)proctab + entry;
+        else
+                curproc = (PEntry *)proctab;    /* point to first entry (process 0) */
+
+        saved_eflags = get_eflags();
+        cli();
+
+        asmswtch(past_process, curproc);
+
+        set_eflags(saved_eflags);
+}
+
+void tsleep() {
+        byte saved_eflags;
+
+        saved_eflags = get_eflags();
+        cli();
+
+        curproc->p_status = BLOCKED;
+/*      curproc->p_waitcode = event; */
+
+        saved_eflags = get_eflags();
+}
+
+void twakeup() {
+        int index;
+        byte saved_eflags;
+
+        saved_eflags = get_eflags();
+        cli();
+        
+        for (index = 1; index < NPROC; index++) {
+                if (proctab[index].p_status == BLOCKED)
+                        proctab[index].p_status == RUN;
+        }
+
+        set_eflags(saved_eflags);
+}
+blade57(5)% cat sched.h
+#include "proc.h"
+
+typedef enum process_number {user_1 = 1, user_2, user_3} process;
+
+void schedule(int entry);
+void tsleep(void);
+void twakeup(void);
+blade57(6)% cat tty.c
+/*********************************************************************
+*
+*       file:           tty.c
+*       author:         betty o'neil
+*                       Ray Zhang
+*
+*       tty driver--device-specific routines for ttys 
+*
+*       using the traditional method of shutdown of transmitter interrupts
+*       when we run out of output.  See tty_secondary_method.c for
+*       the alternative approach using the PC-UART-specific 
+*       acknowledgement method.
+*/
+#include <stdio.h>  /* for kprintf prototype */
+#include <serial.h>
+#include <cpu.h>
+#include <pic.h>
+#include "ioconf.h"
+#include "tty_public.h"
+#include "tty.h"
+#include "queue/queue.h"
+#include "sched.h"
+
+/* define maximum size of queue */
+#define QMAX 6
+
+/* tell C about the assembler shell routines */
+extern void irq3inthand(void), irq4inthand(void); 
+extern void wakeup(void);
+/* C interrupt handlers called from assembler routines */
+void irq4inthandc(void);
+void irq3inthandc(void);
+/* common code for interrupt handlers */
+void irqinthandc(int);
+
+struct tty ttytab[NTTYS];        /* software params/data for each SLU dev */
+
+/*====================================================================
+*
+*       tty specific initialization routine for COM devices
+*/
+
+void ttyinit(int dev)
+{
+    int baseport;
+    struct tty *tty;            /* ptr to tty software params/data block */
+
+    baseport = devtab[dev].dvbaseport; /* pick up hardware addr */
+    tty = (struct tty *)devtab[dev].dvdata; /* and software params struct */
+
+    if (baseport == COM1_BASE) {
+        /* arm interrupts by installing int vec */
+        set_intr_gate(COM1_IRQ+IRQ_TO_INT_N_SHIFT, &irq4inthand);
+        /* commanding PIC to interrupt CPU for irq 4 (COM1_IRQ) */
+        pic_enable_irq(COM1_IRQ);
+
+    } else if (baseport == COM2_BASE) {
+        /* arm interrupts by installing int vec */
+        set_intr_gate(COM2_IRQ+IRQ_TO_INT_N_SHIFT, &irq3inthand);
+        /* commanding PIC to interrupt CPU for irq 3 (COM2_IRQ) */
+        pic_enable_irq(COM2_IRQ);
+    } else {
+        kprintf("ttyinit: Bad TTY device table entry, dev %d\n", dev);
+        return;                 /* give up */
+    }
+    tty->echoflag = 1;          /* default to echoing */
+
+    init_queue( &(tty->tbuf), QMAX ); /* init tbuf Q */
+    init_queue( &(tty->ebuf), QMAX ); /* init ebuf Q */
+    init_queue( &(tty->rbuf), QMAX ); /* init rbuf Q */
+
+    /* enable interrupts on receiver now, leave them on, but
+       wait until output shows up to enable transmitter interrupts. */
+    outpt(baseport+UART_IER, UART_IER_RDI); /* RDI = receiver data int */
+}
+
+
+/*====================================================================
+*
+*       tty-specific read routine for TTY devices
+*
+*/
+
+int ttyread(int dev, char *buf, int nchar)
+{
+    int baseport;
+    struct tty *tty;
+    int i = 0;
+    int saved_eflags;           /* old cpu control/status reg, so can restore it */
+
+    baseport = devtab[dev].dvbaseport; /* hardware addr from devtab */
+    tty = (struct tty *)devtab[dev].dvdata;   /* software data for line */
+
+    while (i < nchar) { /* loop until we get user-specified # of chars */
+        saved_eflags = get_eflags();
+        cli();                  /* disable ints in CPU */
+                                /* for queuecount, dequeue calls */
+        if (queuecount( &(tty->rbuf) )) /* if there is something in rbuf */
+            buf[i++] = dequeue(&(tty->rbuf)); /* copy from rbuf Q to user buf */
+        set_eflags(saved_eflags);     /* back to previous CPU int. status */
+    }
+    return nchar; 
+}
+
+
+/*====================================================================
+*
+*       tty-specific write routine for SAPC devices
+*       
+*/
+
+int ttywrite(int dev, char *buf, int nchar) {
+    int baseport;
+    struct tty *tty;
+    int i = 0;
+    int saved_eflags;
+
+    baseport = devtab[dev].dvbaseport; /* hardware addr from devtab */
+    tty = (struct tty *)devtab[dev].dvdata;   /* software data for line */
+
+    saved_eflags = get_eflags();
+    cli();                      /* disable ints in CPU */
+    /* load tx queue some to get started: this doesn't spin */
+    while ((i < nchar) && (enqueue( &(tty->tbuf), buf[i])!=FULLQUE)) {
+                        i++;
+    /* now tell transmitter to interrupt (or restart output) */
+    outpt( baseport+UART_IER, UART_IER_RDI | UART_IER_THRI); /* enable both */
+    /* read and write int's */
+    set_eflags(saved_eflags);
+    /* loop till all chars are gotten into queue, spinning as needed */
+                cli();                  /* befre entering critical region */
+    while ( i < nchar ) {
+                        while (enqueue( &(tty->tbuf), buf[i])!=FULLQUE) 
+                                tsleep();
+            kickout(baseport);  /* make sure transmits enabled */
+                        i++;
+                }
+                set_eflags(saved_eflags); /* restore CPU flags */
+  }
+  return nchar;
+}
+
+
+/*====================================================================
+*
+*       tty-specific control routine for TTY devices
+*
+*/
+
+int ttycontrol(int dev, int fncode, int val)
+{
+    struct tty *this_tty = (struct tty *)(devtab[dev].dvdata);
+
+    if (fncode == ECHOCONTROL)
+        this_tty->echoflag = val;
+    else return -1;
+    return 0;
+}
+
+/*====================================================================
+*
+*       tty-specific interrupt routines for COM ports
+*       Best to use a function for common code--
+*/
+
+void irq4inthandc()
+{
+    irqinthandc(TTY0);
+}                              
+  
+void irq3inthandc()
+{
+    irqinthandc(TTY1);
+}                              
+                                  
+/* Traditional UART treatment: check the devices' ready status
+   on int, shutdown tx ints if nothing more to write.
+   Note: never looks at IIR, is fairly generic */
+
+void irqinthandc(int dev)
+{
+    int ch, lsr;
+    struct tty *tty = (struct tty *)(devtab[dev].dvdata);
+    int baseport = devtab[dev].dvbaseport; /* hardware i/o port */;
+
+    pic_end_int();                /* notify PIC that its part is done */
+
+    if ((lsr = inpt(baseport+UART_LSR)) & UART_LSR_DR) { /* if read-ready */
+                        ch = inpt(baseport+UART_RX); /* read char, ack the device */
+                        enqueue( &tty->rbuf, ch ); /* save char in read Q (if fits in Q) */
+                        if (tty->echoflag){     /* if echoing wanted */
+                enqueue(&tty->ebuf,ch); /* echo char (if fits in Q) */
+                if (queuecount( &tty->ebuf )==1)  /* if first char...*/
+                                /* enable transmit interrupts also */      
+                                        outpt( baseport+UART_IER, UART_IER_RDI | UART_IER_THRI);
+                        }
+    }
+    if (lsr & UART_LSR_THRE) { /* if it's tx ready */
+                        if (queuecount( &tty->ebuf ))/* if there is char in echo Q output it*/
+                outpt( baseport+UART_TX, dequeue( &tty->ebuf ) ); /* ack tx dev */
+                        else if (queuecount( &tty->tbuf ))  {
+                /* if there is char in tbuf Q output it */
+                outpt( baseport+UART_TX, dequeue( &tty->tbuf ) ); /* ack tx dev */
+                                twakeup();
+                kickout(baseport);                 /* on VMWare, restart ints */
+                }
+                        else                    /* all done transmitting */ {
+                outpt( baseport+UART_IER, UART_IER_RDI); /* shut down tx ints */
+                        }           
+        } 
+}
+/* for VMWare, severe form of transmit interrupt enable */
+void kickout(int baseport)
+{
+  outpt(baseport+UART_IER, UART_IER_RDI);
+  outpt(baseport+UART_IER, UART_IER_RDI|UART_IER_THRI);
+}
+blade57(7)% cat crt01        
+blade57(7)% ls  
+blade57(7)% cat oprog1.c
+cat: cannot open oprog1.c
+blade57(8)% cat uprog1.c
+#include "tunistd.h"
+#include "tty_public.h"
+
+#define MILLION 1000000
+#define DELAY (400 * MILLION)
+
+int main1()
+{
+  int i;
+
+  write(TTY1,"aaaaaaaaaa",10);
+  write(TTY1, "zzz", 3);
+  for (i=0;i<DELAY;i++) /* enough time to drain output q */
+    ;
+  write(TTY1,"AAAAAAAAAA",10);  /* see it start output again */
+  return 2;
+}
+blade57(9)% cat uprog2.c
+#include "tunistd.h"
+#include "tty_public.h"
+
+int main2()
+{
+  write(TTY1,"bbbbbbbbbb",10);
+  return 4;
+}
+blade57(10)% cat uprog3.c
+#include "tunistd.h"
+#include "tty_public.h"
+
+int main3()
+{
+  write(TTY1,"cccccccccc",10);
+  return 6;
+}
+blade57(11)% ls -la
+total 208
+drwxr-xr-x   3 jmallen      1536 Apr 14 23:47 .
+drwx------  10 jmallen       512 Apr 14 22:42 ..
+-rw-r--r--   1 jmallen      1465 Apr 10 17:24 README
+-rw-r--r--   1 jmallen        24 Apr 14 22:07 README.txt
+-rw-r--r--   1 jmallen       118 Apr 14 23:47 asmswtch.opc
+-rw-r--r--   1 jmallen      1540 Apr 10 17:30 asmswtch.s
+-rw-r--r--   1 jmallen       122 Apr 14 23:47 crt01.opc
+-rw-r--r--   1 jmallen       341 Apr 10 18:36 crt01.s
+-rw-r--r--   1 jmallen       122 Apr 14 23:47 crt02.opc
+-rw-r--r--   1 jmallen       357 Apr 10 17:54 crt02.s
+-rw-r--r--   1 jmallen       122 Apr 14 23:47 crt03.opc
+-rw-r--r--   1 jmallen       358 Apr 10 17:54 crt03.s
+-rw-r--r--   1 jmallen     38400 Apr 10 17:18 hw3.doc
+-rw-r--r--   1 jmallen      1510 Apr 10 17:24 io.c
+-rw-r--r--   1 jmallen      2225 Apr 14 23:47 io.opc
+-rw-r--r--   1 jmallen       697 Apr 10 17:20 io_public.h
+-rw-r--r--   1 jmallen       411 Apr 10 17:24 ioconf.c
+-rw-r--r--   1 jmallen       819 Apr 10 17:24 ioconf.h
+-rw-r--r--   1 jmallen      1748 Apr 14 23:47 ioconf.opc
+-rw-r--r--   1 jmallen      3851 Apr 10 17:25 makefile
+-rw-r--r--   1 jmallen      3042 Apr 10 17:24 makefile2
+-rw-r--r--   1 jmallen      1275 Apr 10 18:11 proc.h
+drwxr-xr-x   2 jmallen       512 Apr 12 01:51 queue
+-rw-r--r--   1 jmallen       882 Apr 14 23:34 sched.c
+-rw-r--r--   1 jmallen       151 Apr 14 23:26 sched.h
+-rw-r--r--   1 jmallen      2859 Apr 14 23:47 sched.opc
+-rw-r--r--   1 jmallen        98 Apr 14 23:47 startup0.opc
+-rw-r--r--   1 jmallen       235 Apr 10 17:24 startup0.s
+-rw-r--r--   1 jmallen       306 Apr 10 17:24 startup1.c
+-rw-r--r--   1 jmallen      1223 Apr 14 23:47 startup1.opc
+lrwxrwxrwx   1 jmallen        10 Apr 14 23:47 syms -> tunix.syms
+-rw-r--r--   1 jmallen       103 Apr 14 23:47 sysentry.opc
+-rw-r--r--   1 jmallen       631 Apr 10 17:24 sysentry.s
+-rw-r--r--   1 jmallen      1683 Apr 10 17:24 test1.c
+-rw-r--r--   1 jmallen      1842 Apr 10 17:24 test1.out
+-rw-r--r--   1 jmallen       412 Apr 10 17:24 test1.sh
+-rw-r--r--   1 jmallen      3505 Apr 10 17:24 test1.syms
+-rw-r--r--   1 jmallen      3022 Apr 10 17:21 testio.c
+-rw-r--r--   1 jmallen       235 Apr 10 17:24 tsyscall.h
+-rw-r--r--   1 jmallen       583 Apr 10 17:24 tsystm.h
+-rw-r--r--   1 jmallen      6931 Apr 14 23:42 tty.c
+-rw-r--r--   1 jmallen       744 Apr 10 17:24 tty.h
+-rw-r--r--   1 jmallen      8620 Apr 14 23:47 tty.opc
+-rw-r--r--   1 jmallen       415 Apr 10 17:24 tty_public.h
+-rw-r--r--   1 jmallen       616 Apr 10 17:24 tunistd.h
+-rw-r--r--   1 jmallen      6867 Apr 14 23:36 tunix.c
+-rwxr-xr-x   1 jmallen     41275 Apr 14 23:47 tunix.lnx
+-rw-r--r--   1 jmallen      6929 Apr 14 23:47 tunix.opc
+-rw-r--r--   1 jmallen      3974 Apr 14 23:47 tunix.syms
+-rw-r--r--   1 jmallen     16384 Apr 14 23:48 typescript
+-rw-r--r--   1 jmallen       942 Apr 14 23:40 typescript_ulab
+-rw-r--r--   1 jmallen       190 Apr 14 23:47 ulib.opc
+-rw-r--r--   1 jmallen      1199 Apr 10 17:24 ulib.s
+-rw-r--r--   1 jmallen       341 Apr 10 17:41 uprog1.c
+-rw-r--r--   1 jmallen      1386 Apr 14 23:47 uprog1.opc
+-rw-r--r--   1 jmallen       105 Apr 10 17:43 uprog2.c
+-rw-r--r--   1 jmallen      1172 Apr 14 23:47 uprog2.opc
+-rw-r--r--   1 jmallen       293 Apr 10 17:18 uprog2a.c
+-rw-r--r--   1 jmallen       105 Apr 10 17:43 uprog3.c
+-rw-r--r--   1 jmallen      1172 Apr 14 23:47 uprog3.opc
+blade57(12)% pwd
+/courses/cs444/s17/cheungr/jmallen/hw3
+blade57(13)% cat Rer  EADME.txt 
+John Allen
+Tanmoy Barua
+blade57(14)% exit
+script done on Fri Apr 14 23:49:56 2017

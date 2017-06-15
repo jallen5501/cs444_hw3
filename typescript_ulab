@@ -1,0 +1,37 @@
+Script started on Fri 14 Apr 2017 11:38:20 PM EDT
+tuser@tutor-vserver:~/hw3$ mtip -f tunix.lnx
+For command help, type ~?
+For help on args, rerun without args
+Code starts at 0x100100
+Using board # 1 
+~downloading tunix.lnx
+
+.........Done.
+
+Download done, setting EIP to 100100.
+Tutor> go 100100
+aaaaaaaaaazzzAAAAAAAAAAbbbbbbbbbbcccccccccc
+EXIT CODE FOR USER PROCESS 1: 2
+
+EXIT CODE FOR USER PROCESS 2: 4
+
+EXIT CODE FOR USER PROCESS 3: 6
+SHUTTING THE SYSTEM DOWN!
+Debug log from run:
+Marking kernel events as follows:
+  ^a   COM2 input interrupt, a received
+  ~    COM2 output interrupt, ordinary char output
+  ~e   COM2 output interrupt, echo output
+  ~s   COM2 output interrupt, shutdown TX ints
+
+LEAVE KERNEL!
+
+Exception 3 at EIP=0010010b: Breakpoint
+Tutor> 
+Tutor> 
+Quit handler: 
+killing process 1901 Leaving board #1
+tuser@tutor-vserver:~/hw3$ exit
+exit
+
+Script done on Fri 14 Apr 2017 11:39:10 PM EDT
